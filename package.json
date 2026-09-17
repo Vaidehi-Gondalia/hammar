@@ -1,0 +1,26 @@
+{
+  "name": "hammr",
+  "private": true,
+  "scripts": {
+    "prepare": "husky",
+    "lint": "npm run lint --prefix frontend && npm run lint --prefix backend",
+    "typecheck": "npm run build --prefix frontend && npm run build --prefix backend",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.6.2"
+  },
+  "lint-staged": {
+    "frontend/**/*.{js,jsx,ts,tsx}": [
+      "npm run lint --prefix frontend -- --fix",
+      "prettier --write"
+    ],
+    "backend/**/*.{js,jsx,ts,tsx}": [
+      "npm run lint --prefix backend -- --fix",
+      "prettier --write"
+    ],
+    "**/*.{json,md,css,yml,yaml}": "prettier --write"
+  }
+}

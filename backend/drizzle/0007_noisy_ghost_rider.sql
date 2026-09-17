@@ -1,0 +1,1 @@
+ALTER TABLE "auction_images" ALTER COLUMN "public_id" DROP NOT NULL;
